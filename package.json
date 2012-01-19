@@ -1,5 +1,5 @@
 { "name": "zombie",
-  "version": "0.12.11",
+  "version": "0.12.13",
   "description": "Insanely fast, full-stack, headless browser testing using Node.js",
   "homepage": "http://zombie.labnotes.org/",
   "author": "Assaf Arkin <assaf@labnotes.org> (http://labnotes.org/)",
@@ -28,6 +28,7 @@
     "docco":            "~0.3.0",
     "express":          "~2.5.4",
     "highlight":        "~0.2.0",
+    "replay":           "~1.2.3",
     "ronn":             "~0.3.8",
     "vows":             "~0.6.1"
   },

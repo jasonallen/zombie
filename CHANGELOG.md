@@ -2,6 +2,26 @@ zombie.js-changelog(7) -- Changelog
 ===================================
 
 
+## Version 0.12.13 2012-01-18
+
+`Browser.fire` takes no options (that was an undocumented argument), and always fires events that bubble and can be
+cancelled.
+
+Clicking on checkbox or radio button now changes the value and propagated the click event.  If `preventDefault`, the
+value is changed back.
+
+    411 tests
+    6.0 sec to complete
+
+
+## Version 0.12.12 2012-01-16
+
+Added element offset properties.  Google Maps demand these.
+
+    406 tests
+    5.9 sec to complete
+
+
 ## Version 0.12.11 2012-01-06
 
 Maintenance update, mostly more test coverage, and updates to dependencies.

@@ -1,8 +1,8 @@
 DNS       = require("dns")
 Express   = require("express")
-WebSocket = require("ws")
 File      = require("fs")
 Path      = require("path")
+Replay    = require("replay")
 Browser   = require("../lib/zombie.js")
 
 
@@ -12,22 +12,20 @@ Browser.silent = !Browser.debug
 
 
 # Redirect all HTTP requests to localhost
-DNS.lookup = (domain, callback)->
-  callback null, "127.0.0.1", 4
+Replay.fixtures = "#{__dirname}/replay"
+Replay.networkAccess = true
+Replay.localhost "host.localhost"
+Replay.ignore "mt0.googleapis.com", "mt1.googleapis.com"
 
 
 # An express server we use to test the browser.
 brains = Express.createServer()
 brains.use Express.bodyParser()
 brains.use Express.cookieParser()
-wss = new WebSocket.Server({ server: brains })
 
 
 brains.get "/", (req, res)->
   res.send "<html><title>Tap, Tap</title></html>"
-
-wss.on "connection", (client)->
-  client.send "Hello"
 
 # Prevent sammy from polluting the output. Comment this if you need its
 # messages for debugging.
