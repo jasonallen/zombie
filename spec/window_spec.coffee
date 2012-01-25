@@ -151,5 +151,7 @@ Vows.describe("Window").addBatch(
       assert.isNotNull browser.window.navigator
     ".javaEnabled should be false": (browser)->
       assert.equal browser.window.navigator.javaEnabled(), false
+    ".mimeTypes should be defined": (browser)->
+      assert.isArray(browser.window.navigator.mimeTypes);
 
 ).export(module)

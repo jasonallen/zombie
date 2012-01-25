@@ -171,6 +171,7 @@ class Browser extends EventEmitter
     newWindow.navigator.javaEnabled = ->
       return false
     newWindow.navigator.userAgent = @userAgent
+    newWindow.navigator.mimeTypes = [];
     
     @_cookies.extend newWindow
     @_storages.extend newWindow
